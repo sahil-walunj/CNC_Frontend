@@ -1,0 +1,273 @@
+<!-- signup.component.html -->
+<div class="signup-container">
+    <!-- Left side - Branding and Info -->
+    <div class="signup-branding">
+        <div class="brand-content">
+            <div class="logo">
+                <mat-icon class="logo-icon">storefront</mat-icon>
+                <h1>VendorHub</h1>
+            </div>
+
+            <div class="hero-content">
+                <h2>Start Your Multi-Store Journey</h2>
+                <p class="hero-description">
+                    Join thousands of successful vendors who manage their entire e-commerce empire from one powerful
+                    dashboard.
+                </p>
+
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <mat-icon>check_circle</mat-icon>
+                        <span>Connect unlimited stores</span>
+                    </div>
+                    <div class="benefit-item">
+                        <mat-icon>check_circle</mat-icon>
+                        <span>Real-time inventory sync</span>
+                    </div>
+                    <div class="benefit-item">
+                        <mat-icon>check_circle</mat-icon>
+                        <span>Automated order management</span>
+                    </div>
+                    <div class="benefit-item">
+                        <mat-icon>check_circle</mat-icon>
+                        <span>Advanced analytics & insights</span>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <span>Active Vendors</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50M+</h3>
+                        <span>Orders Processed</span>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <span>Uptime</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right side - Signup Form -->
+    <div class="signup-form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Create Your Account</h2>
+                <p>Get started with your vendor dashboard</p>
+
+                <!-- Progress Stepper -->
+                <mat-stepper #stepper orientation="horizontal" class="signup-stepper" [linear]="false">
+                    <!-- Step 1: Basic Information -->
+                    <mat-step [stepControl]="basicInfoForm" label="Basic Info">
+                        <ng-template matStepLabel>Basic Info</ng-template>
+                        <form [formGroup]="basicInfoForm" class="step-form">
+                            <h3>Let's start with the basics</h3>
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Full Name</mat-label>
+                                <input matInput formControlName="sellerName" placeholder="Enter your full name">
+                                <mat-icon matSuffix>person</mat-icon>
+                                <mat-error *ngIf="basicInfoForm.get('sellerName')?.hasError('required')">
+                                    Name is required
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Email Address</mat-label>
+                                <input matInput formControlName="email" type="email" placeholder="Enter your email">
+                                <mat-icon matSuffix>email</mat-icon>
+                                <mat-error *ngIf="basicInfoForm.get('email')?.hasError('required')">
+                                    Email is required
+                                </mat-error>
+                                <mat-error *ngIf="basicInfoForm.get('email')?.hasError('email')">
+                                    Please enter a valid email
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'"
+                                    placeholder="Create a strong password">
+                                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                                    <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="basicInfoForm.get('password')?.hasError('required')">
+                                    Password is required
+                                </mat-error>
+                                <mat-error *ngIf="basicInfoForm.get('password')?.hasError('minlength')">
+                                    Password must be at least 6 characters
+                                </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Confirm Password</mat-label>
+                                <input matInput formControlName="confirmPassword"
+                                    [type]="hideConfirmPassword ? 'password' : 'text'"
+                                    placeholder="Confirm your password">
+                                <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword"
+                                    type="button">
+                                    <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                                <mat-error *ngIf="basicInfoForm.get('confirmPassword')?.hasError('required')">
+                                    Please confirm your password
+                                </mat-error>
+                                <mat-error *ngIf="basicInfoForm.hasError('passwordMismatch')">
+                                    Passwords do not match
+                                </mat-error>
+                            </mat-form-field>
+
+                            <div class="step-actions">
+                                <button mat-raised-button color="primary" matStepperNext
+                                    [disabled]="basicInfoForm.invalid">
+                                    Continue
+                                    <mat-icon>arrow_forward</mat-icon>
+                                </button>
+                            </div>
+                        </form>
+                    </mat-step>
+
+                    <!-- Step 2: Platform Integration -->
+                    <mat-step label="Connect Stores">
+                        <ng-template matStepLabel>Connect Stores</ng-template>
+                        <form [formGroup]="platformForm" class="step-form">
+                            <h3>Connect Your Online Stores</h3>
+                            <p class="step-description">Integrate your existing stores to start managing everything in
+                                one place.</p>
+
+                            <!-- Amazon Integration -->
+                            <div class="platform-section">
+                                <div class="platform-header">
+                                    <mat-icon class="platform-icon amazon">shopping_bag</mat-icon>
+                                    <div>
+                                        <h4>Amazon Seller Central</h4>
+                                        <p>Connect your Amazon store for inventory and order sync</p>
+                                    </div>
+                                    <mat-checkbox formControlName="enableAmazon" color="primary"></mat-checkbox>
+                                </div>
+
+                                <div class="platform-fields" *ngIf="platformForm.get('enableAmazon')?.value">
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Amazon API Key</mat-label>
+                                        <input matInput formControlName="AmazonApiKey"
+                                            placeholder="Enter your Amazon API key">
+                                        <mat-icon matSuffix>key</mat-icon>
+                                    </mat-form-field>
+
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Amazon Secret Key</mat-label>
+                                        <input matInput formControlName="AmazonSecretKey" type="password"
+                                            placeholder="Enter your Amazon secret key">
+                                        <mat-icon matSuffix>lock</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <!-- Flipkart Integration -->
+                            <div class="platform-section">
+                                <div class="platform-header">
+                                    <mat-icon class="platform-icon flipkart">store</mat-icon>
+                                    <div>
+                                        <h4>Flipkart Seller Hub</h4>
+                                        <p>Sync your Flipkart store products and orders</p>
+                                    </div>
+                                    <mat-checkbox formControlName="enableFlipkart" color="primary"></mat-checkbox>
+                                </div>
+
+                                <div class="platform-fields" *ngIf="platformForm.get('enableFlipkart')?.value">
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Flipkart API Key</mat-label>
+                                        <input matInput formControlName="FlipkartApiKey"
+                                            placeholder="Enter your Flipkart API key">
+                                        <mat-icon matSuffix>key</mat-icon>
+                                    </mat-form-field>
+
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Flipkart Secret Key</mat-label>
+                                        <input matInput formControlName="FlipkartSecretKey" type="password"
+                                            placeholder="Enter your Flipkart secret key">
+                                        <mat-icon matSuffix>lock</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="integration-note">
+                                <mat-icon>info</mat-icon>
+                                <span>Don't worry! You can add more platforms later from your dashboard.</span>
+                            </div>
+
+                            <div class="step-actions">
+                                <button mat-button matStepperPrevious type="button">
+                                    <mat-icon>arrow_back</mat-icon>
+                                    Back
+                                </button>
+                                <button mat-raised-button color="primary" matStepperNext type="button">
+                                    Continue
+                                    <mat-icon>arrow_forward</mat-icon>
+                                </button>
+                            </div>
+                        </form>
+                    </mat-step>
+
+                    <!-- Step 3: Confirmation -->
+                    <mat-step label="Complete">
+                        <ng-template matStepLabel>Complete</ng-template>
+                        <div class="completion-step">
+                            <div class="success-icon">
+                                <mat-icon>check_circle</mat-icon>
+                            </div>
+                            <h3>You're All Set!</h3>
+                            <p>Review your information and complete your registration.</p>
+
+                            <div class="summary-card">
+                                <h4>Account Summary</h4>
+                                <div class="summary-item">
+                                    <span>Name:</span>
+                                    <span>{{basicInfoForm.get('sellerName')?.value}}</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Email:</span>
+                                    <span>{{basicInfoForm.get('email')?.value}}</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Connected Platforms:</span>
+                                    <span>{{getConnectedPlatforms()}}</span>
+                                </div>
+                            </div>
+
+                            <form [formGroup]="platformForm">
+                                <mat-checkbox formControlName="acceptTerms" color="primary" class="terms-checkbox">
+                                    I agree to the <a href="/terms" target="_blank">Terms of Service</a> and <a
+                                        href="/privacy" target="_blank">Privacy Policy</a>
+                                </mat-checkbox>
+                            </form>
+
+                            <div class="step-actions">
+                                <button mat-button matStepperPrevious type="button">
+                                    <mat-icon>arrow_back</mat-icon>
+                                    Back
+                                </button>
+                                <button mat-raised-button color="primary" (click)="onSubmit()"
+                                    [disabled]="!isFormValid()" class="create-account-btn" type="button">
+                                    <mat-icon>rocket_launch</mat-icon>
+                                    Create Account
+                                </button>
+                            </div>
+                        </div>
+                    </mat-step>
+                </mat-stepper>
+            </div>
+
+            <div class="login-prompt">
+                <p>Already have an account?
+                    <button mat-button color="primary" (click)="navigateToLogin()" class="login-link">
+                        Sign In
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

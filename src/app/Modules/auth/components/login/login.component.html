@@ -1,0 +1,112 @@
+<!-- login.component.html -->
+<div class="login-container">
+  <!-- Left side - Branding and Info -->
+  <div class="login-branding">
+    <div class="brand-content">
+      <div class="logo">
+        <mat-icon class="logo-icon">storefront</mat-icon>
+        <h1>VendorHub</h1>
+      </div>
+      
+      <div class="hero-content">
+        <h2>Manage Your Multi-Store Empire</h2>
+        <p class="hero-description">
+          Connect all your online stores in one powerful dashboard. Track products, manage orders, 
+          and grow your business across multiple platforms effortlessly.
+        </p>
+        
+        <div class="features">
+          <div class="feature-item">
+            <mat-icon>inventory_2</mat-icon>
+            <span>Unified Product Management</span>
+          </div>
+          <div class="feature-item">
+            <mat-icon>shopping_cart</mat-icon>
+            <span>Cross-Platform Orders</span>
+          </div>
+          <div class="feature-item">
+            <mat-icon>analytics</mat-icon>
+            <span>Real-time Analytics</span>
+          </div>
+          <div class="feature-item">
+            <mat-icon>sync</mat-icon>
+            <span>Multi-Store Sync</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="platform-logos">
+        <div class="platform-item">
+          <mat-icon>shopping_bag</mat-icon>
+          <span>Shopify</span>
+        </div>
+        <div class="platform-item">
+          <mat-icon>storefront</mat-icon>
+          <span>Amazon</span>
+        </div>
+        <div class="platform-item">
+          <mat-icon>store</mat-icon>
+          <span>eBay</span>
+        </div>
+        <div class="platform-item">
+          <mat-icon>shop</mat-icon>
+          <span>Etsy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side - Login Form -->
+  <div class="login-form-section">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Welcome Back</h2>
+        <p>Sign in to your vendor dashboard</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="Enter your email">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="form.get('email')?.hasError('email')">
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Enter your password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="form.get('password')?.hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+
+        
+        <button mat-raised-button color="primary" type="submit" class="login-btn" [disabled]="form.invalid">
+          <mat-icon>login</mat-icon>
+          Sign In
+        </button>
+      </form>
+
+      <div class="signup-prompt">
+        <p>Don't have an account? 
+          <button mat-button color="primary" (click)="navigateToSignup()" class="signup-link">
+            Create Account
+          </button>
+        </p>
+      </div>
+
+      <div class="help-section">
+        <mat-icon>help_outline</mat-icon>
+        <span>Need help? <a href="/support">Contact Support</a></span>
+      </div>
+    </div>
+  </div>
+</div>

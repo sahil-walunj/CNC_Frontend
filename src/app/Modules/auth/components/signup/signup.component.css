@@ -1,0 +1,462 @@
+/* signup.component.css */
+
+.signup-container {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Left Side - Branding */
+.signup-branding {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.signup-branding::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+.logo-icon {
+  font-size: 3rem;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.hero-content h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.benefit-item mat-icon {
+  color: #4ade80;
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #4ade80;
+}
+
+.stat-item span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Right Side - Signup Form */
+.signup-form-section {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.signup-stepper {
+  margin: 2rem 0;
+}
+
+.step-form {
+  padding: 1.5rem 0;
+}
+
+.step-form h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.step-description {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.platform-section {
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.platform-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.platform-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-icon.amazon {
+  background: #ff9900;
+  color: white;
+}
+
+.platform-icon.flipkart {
+  background: #047bd6;
+  color: white;
+}
+
+.platform-header div {
+  flex: 1;
+}
+
+.platform-header h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.platform-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.platform-fields {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: #f8f9ff;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.integration-note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #e3f2fd;
+  border-radius: 8px;
+  color: #1565c0;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.step-actions button {
+  min-width: 120px;
+  height: 44px;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.completion-step {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-icon {
+  margin-bottom: 1.5rem;
+}
+
+.success-icon mat-icon {
+  font-size: 4rem;
+  width: 4rem;
+  height: 4rem;
+  color: #4ade80;
+}
+
+.completion-step h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.completion-step p {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.summary-card h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-item span:first-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.summary-item span:last-child {
+  color: #333;
+  font-weight: 600;
+}
+
+.terms-checkbox {
+  margin: 2rem 0;
+}
+
+.terms-checkbox a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
+}
+
+.create-account-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  min-width: 180px;
+  height: 48px;
+  font-size: 1rem;
+}
+
+.login-prompt {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.login-prompt p {
+  color: #666;
+}
+
+.login-link {
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .signup-container {
+    flex-direction: column;
+  }
+  
+  .signup-branding {
+    min-height: 50vh;
+  }
+  
+  .benefits {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .benefit-item {
+    flex: 1;
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-form-section {
+    padding: 1rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem;
+  }
+  
+  .step-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  .step-actions button {
+    width: 100%;
+  }
+  
+  .platform-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .benefits {
+    flex-direction: column;
+  }
+  
+  .benefit-item {
+    min-width: auto;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+}
