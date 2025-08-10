@@ -1,0 +1,92 @@
+.maincontainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.product-accordion {
+    background: transparent;
+}
+
+.product-panel {
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.product-panel:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+    font-weight: 600;
+    color: #111827;
+}
+
+.product-content {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: #fafafa;
+}
+
+@media (max-width: 640px) {
+    .product-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.platform-section h4 {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.data-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.data-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Clean Material Design overrides */
+.mat-expansion-panel-header {
+    height: 64px;
+    padding: 0 24px;
+}
+
+.mat-expansion-panel-body {
+    padding: 0;
+}
+
+.mat-expansion-panel-content {
+    overflow: visible;
+}

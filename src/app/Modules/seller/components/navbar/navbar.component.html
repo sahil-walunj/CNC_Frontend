@@ -1,0 +1,136 @@
+<!-- dashboard.component.html -->
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav #drawer class="sidenav" mode="side" [opened]="sidebarOpened" fixedInViewport="true">
+
+    <!-- Sidebar Header -->
+    <div class="sidebar-header">
+      <div class="brand-container">
+        <mat-icon class="brand-icon">storefront</mat-icon>
+        <h2 class="brand-title">{{ companyName }}</h2>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <mat-nav-list class="nav-menu">
+      <mat-accordion [multi]="false" class="sidebar-accordion">
+
+        <!-- Orders Section -->
+        <mat-expansion-panel class="nav-expansion-panel">
+          <mat-expansion-panel-header class="nav-panel-header">
+            <mat-panel-title class="nav-panel-title">
+              <mat-icon class="nav-section-icon">shopping_cart</mat-icon>
+              <span class="nav-section-text">Orders</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="nav-submenu">
+            <mat-list-item class="nav-sub-item" routerLink="/products" routerLinkActive="active">
+              <mat-icon matListIcon class="nav-item-icon">inventory_2</mat-icon>
+              <span matLine class="nav-item-text">Products</span>
+            </mat-list-item>
+
+            <mat-list-item class="nav-sub-item" routerLink="/home" routerLinkActive="active">
+              <mat-icon matListIcon class="nav-item-icon">home</mat-icon>
+              <span matLine class="nav-item-text">Home</span>
+            </mat-list-item>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="nav-expansion-panel">
+          <mat-expansion-panel-header class="nav-panel-header">
+            <mat-panel-title class="nav-panel-title">
+              <mat-icon class="nav-section-icon">shopping_cart</mat-icon>
+              <span class="nav-section-text">Products</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="nav-submenu">
+            <mat-list-item class="nav-sub-item" routerLink="products" routerLinkActive="active">
+              <mat-icon matListIcon class="nav-item-icon">inventory_2</mat-icon>
+              <span matLine class="nav-item-text">Products</span>
+            </mat-list-item>
+
+            <mat-list-item class="nav-sub-item" routerLink="/home" routerLinkActive="active">
+              <mat-icon matListIcon class="nav-item-icon">home</mat-icon>
+              <span matLine class="nav-item-text">Home</span>
+            </mat-list-item>
+          </div>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="main-content">
+    <!-- Top Navigation Bar -->
+    <mat-toolbar class="top-toolbar" color="primary">
+      <!-- Menu Toggle Button -->
+      <button mat-icon-button class="menu-toggle-btn" (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <!-- Company Name -->
+      <span class="company-name">
+        {{ companyName | uppercase }}
+      </span>
+
+      <!-- Spacer -->
+      <span class="toolbar-spacer"></span>
+
+      <!-- User Greeting -->
+      <span class="user-greeting" (click)="navigateToProfile()">
+        Hi {{ currentUser.username }}
+      </span>
+
+      <!-- Notifications -->
+      <div class="notification-container">
+        <button mat-icon-button class="notification-btn" [matMenuTriggerFor]="notificationMenu">
+          <mat-icon>notifications</mat-icon>
+          <span class="notification-badge" *ngIf="notifications.length > 0">
+            {{ notifications.length }}
+          </span>
+        </button>
+
+        <mat-menu #notificationMenu="matMenu" class="notification-menu">
+          <div class="notification-header">
+            <h3>Notifications</h3>
+            <button mat-button (click)="clearNotifications()" class="clear-btn">Clear All</button>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="notification-list" *ngIf="notifications.length > 0; else noNotifications">
+            <div class="notification-item" *ngFor="let notification of notifications">
+              <div class="notification-content">
+                <p class="notification-message">{{ notification.message }}</p>
+                <span class="notification-time">{{ notification.time }}</span>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #noNotifications>
+            <div class="no-notifications">
+              <mat-icon>notifications_off</mat-icon>
+              <p>No new notifications</p>
+            </div>
+          </ng-template>
+        </mat-menu>
+      </div>
+
+      <!-- Settings -->
+      <button mat-icon-button class="toolbar-icon-btn" (click)="navigateToSettings()">
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      <!-- Logout -->
+      <button mat-icon-button class="toolbar-icon-btn logout-btn" matTooltip="Logout" (click)="logOut()">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Router Outlet -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

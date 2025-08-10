@@ -1,0 +1,50 @@
+<div class="maincontainer">
+    <mat-accordion class="product-accordion">
+        <mat-expansion-panel *ngFor="let product of productsList" class="product-panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title class="product-title">
+                    {{ product.title }}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="product-content">
+                <div class="platform-section">
+                    <h4>Amazon</h4>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="label">Price</span>
+                            <span class="value">{{ product.amazonList?.Price || 'N/A' }}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Stock</span>
+                            <span class="value">{{ product.amazonList?.QuantityAvailable || 'N/A' }}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Sold</span>
+                            <span class="value">{{ product.amazonList?.TotalSold || 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platform-section">
+                    <h4>Flipkart</h4>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <span class="label">Price</span>
+                            <span class="value">{{ product.flipkartList?.price || 'N/A' }}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Stock</span>
+                            <span class="value">{{ product.flipkartList?.quantityAvailable || 'N/A' }}</span>
+                        </div>
+                        <div class="data-item">
+                            <span class="label">Sold</span>
+                            <span class="value">{{ product.flipkartList?.totalSold || 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
