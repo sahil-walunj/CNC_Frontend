@@ -23,11 +23,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
-
+import { ProductCreateComponent } from './components/product-create/product-create.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     NavbarComponent,
-    ProductListingComponent
+    ProductListingComponent,
+    ProductCreateComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,10 @@ import { ProductListingComponent } from './components/product-listing/product-li
     ReactiveFormsModule,
     MatMenuModule,
     MatBadgeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule
   ]
 })
 export class SellerModule { }

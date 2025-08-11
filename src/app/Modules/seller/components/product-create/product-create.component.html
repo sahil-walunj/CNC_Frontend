@@ -1,0 +1,37 @@
+<div [formGroup]="productForm" class="container">
+    <mat-form-field appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Product Name" formControlName="title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="Category" formControlName="category">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="Price" formControlName="price">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Fulfillment Channel</mat-label>
+        <input matInput placeholder="Fulfillment Channel" formControlName="fulfillmentChannel">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Include In Which Stores</mat-label>
+        <mat-select formControlName="selectedStores" multiple (selectionChange)="onStoresChange($event.value)">
+            <mat-option *ngFor="let store of retailerOptions" [value]="store">
+                {{ store }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- SKU input for each selected store -->
+    <div formArrayName="storeSkuPairs">
+        <div *ngFor="let group of storeSkuPairs.controls; let i = index" [formGroupName]="i">
+            <mat-form-field appearance="fill">
+                <mat-label>Quantity for {{ group.get('store')?.value }}</mat-label>
+                <input matInput formControlName="sku" placeholder="Enter SKU">
+            </mat-form-field>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="createProduct()">Create Product</button>
+</div>
