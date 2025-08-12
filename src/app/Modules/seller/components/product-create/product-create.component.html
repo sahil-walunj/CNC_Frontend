@@ -24,12 +24,12 @@
         </mat-select>
     </mat-form-field>
 
-    <!-- SKU input for each selected store -->
+    <!-- Quantity input for each selected store -->
     <div formArrayName="storeSkuPairs">
         <div *ngFor="let group of storeSkuPairs.controls; let i = index" [formGroupName]="i">
             <mat-form-field appearance="fill">
                 <mat-label>Quantity for {{ group.get('store')?.value }}</mat-label>
-                <input matInput formControlName="sku" placeholder="Enter SKU">
+                <input matInput formControlName="sku" placeholder="Quantity">
             </mat-form-field>
         </div>
     </div>
