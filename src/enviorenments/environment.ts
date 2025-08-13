@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:5254'
-  //baseUrl: 'http://ec2-43-204-101-226.ap-south-1.compute.amazonaws.com'
- //baseUrl: 'https://rehab-backend-6ov1.onrender.com'
+  // baseUrl: 'http://localhost:5254'
+  baseUrl: 'https://cnc-backend-dwb3.onrender.com'
 };
 
 /* 
