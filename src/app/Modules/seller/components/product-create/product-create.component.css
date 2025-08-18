@@ -1,85 +1,80 @@
 .container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 520px;
+  margin: 3rem auto;
+  padding: 2.5rem;
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* Form field styling */
+/* Clean form field spacing */
 mat-form-field {
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-mat-form-field.mat-form-field {
-  font-size: 16px;
-}
-
-/* Input field customization */
+/* Minimal input styling */
 .mat-mdc-text-field-wrapper {
-  background-color: #f8fafc !important;
-  border-radius: 12px !important;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
+  background-color: #ffffff !important;
+  border-radius: 6px !important;
+  border: 1px solid #d1d5db;
+  transition: border-color 0.2s ease;
 }
 
 .mat-mdc-text-field-wrapper:hover {
-  border-color: #cbd5e0;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: #9ca3af;
 }
 
 .mat-mdc-text-field-wrapper.mdc-text-field--focused {
-  border-color: #6366f1 !important;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+  border-color: #374151 !important;
+  box-shadow: none !important;
 }
 
-/* Label styling */
+/* Simple label styling */
 .mat-mdc-form-field-label {
-  color: #64748b !important;
+  color: #6b7280 !important;
   font-weight: 500;
   font-size: 14px;
 }
 
 .mat-mdc-form-field-label.mdc-floating-label--float-above {
-  color: #6366f1 !important;
+  color: #374151 !important;
 }
 
-/* Input text styling */
+/* Clean input text */
 .mat-mdc-input-element {
-  color: #1e293b !important;
-  font-size: 16px;
-  padding: 16px 16px !important;
+  color: #111827 !important;
+  font-size: 15px;
+  padding: 12px 14px !important;
 }
 
 .mat-mdc-input-element::placeholder {
-  color: #94a3b8 !important;
+  color: #9ca3af !important;
   opacity: 1;
 }
 
-/* Select dropdown styling */
+/* Select dropdown */
 .mat-mdc-select-trigger {
-  padding: 16px 16px !important;
+  padding: 12px 14px !important;
 }
 
 .mat-mdc-select-value {
-  color: #1e293b;
-  font-size: 16px;
+  color: #111827;
+  font-size: 15px;
 }
 
 .mat-mdc-select-placeholder {
-  color: #94a3b8;
+  color: #9ca3af;
 }
 
-/* Store quantity pairs section */
+/* Store quantity section */
 div[formArrayName="storeSkuPairs"] {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%);
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
 }
 
 div[formArrayName="storeSkuPairs"] > div {
@@ -90,51 +85,69 @@ div[formArrayName="storeSkuPairs"] > div:last-child {
   margin-bottom: 0;
 }
 
-/* Button styling */
+/* Minimal button */
 button[mat-raised-button] {
   width: 100%;
-  height: 56px;
+  height: 44px;
   margin-top: 2rem;
-  border-radius: 12px !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
+  border-radius: 6px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
   text-transform: none !important;
-  letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+  background: #111827 !important;
   color: white !important;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3) !important;
-  transition: all 0.3s ease !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s ease !important;
 }
 
 button[mat-raised-button]:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4) !important;
+  background: #1f2937 !important;
 }
 
 button[mat-raised-button]:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
+  background: #374151 !important;
 }
 
-/* Multi-select chip styling */
+/* Simple chip styling */
 .mat-mdc-chip {
-  background-color: #6366f1 !important;
-  color: white !important;
-  border-radius: 20px !important;
+  background-color: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px !important;
   font-size: 13px !important;
   font-weight: 500 !important;
 }
 
 .mat-mdc-chip .mat-mdc-chip-remove {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #6b7280 !important;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
+/* Dropdown panel */
+.mat-mdc-select-panel {
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  border: 1px solid #e5e7eb;
+}
+
+.mat-mdc-option {
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+}
+
+.mat-mdc-option:hover {
+  background-color: #f3f4f6 !important;
+}
+
+.mat-mdc-option.mat-mdc-option-active {
+  background-color: #f9fafb !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
   .container {
     margin: 1rem;
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: 6px;
   }
   
   mat-form-field {
@@ -142,32 +155,16 @@ button[mat-raised-button]:active {
   }
   
   button[mat-raised-button] {
-    height: 48px;
     margin-top: 1.5rem;
   }
 }
 
-/* Focus states for accessibility */
-mat-form-field:focus-within {
-  outline: none;
-}
-
-/* Animation for smooth interactions */
+/* Remove all unnecessary transitions and animations */
 * {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: none;
 }
 
-/* Custom scrollbar for select options */
-.mat-mdc-select-panel {
-  border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
-}
-
-.mat-mdc-option {
-  padding: 12px 16px !important;
-  font-size: 15px !important;
-}
-
-.mat-mdc-option:hover {
-  background-color: rgba(99, 102, 241, 0.08) !important;
+.mat-mdc-text-field-wrapper,
+button[mat-raised-button] {
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }

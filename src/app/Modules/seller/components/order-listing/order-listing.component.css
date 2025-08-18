@@ -1,0 +1,65 @@
+.maincontainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.amazonOrders,
+.FlipkartOrders {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.amazonOrders h2,
+.FlipkartOrders h2 {
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.listing {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.listing:hover {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.listing:last-child {
+    margin-bottom: 0;
+}
+
+.listing div {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.4rem 0;
+    line-height: 1.4;
+}
+
+.listing div:first-child {
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+@media (max-width: 768px) {
+    .maincontainer {
+        padding: 1rem;
+    }
+
+    .listing {
+        padding: 0.8rem;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="maincontainer">
+    <mat-accordion>
+        <mat-expansion-panel class="amazonOrders">
+            <mat-expansion-panel-header>Amazon Orders</mat-expansion-panel-header>
+
+            <div class="listing" *ngFor="let order of amazonList">
+                <div>Ordered Product: {{ order.productTitle }}</div>
+                <div>Order ID: {{ order.OrderId }}</div>
+                <div>Order Date: {{ order.OrderDate | date: 'yyyy-MM-dd' }}</div>
+                <div>Order Status: {{ order.Status }}</div>
+                <div>Order Total: {{ order.Quantity }}</div>
+            </div>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel class="FlipkartOrders">
+            <mat-expansion-panel-header>Flipkart Orders</mat-expansion-panel-header>
+            <div class="listing" *ngFor="let order of flipkartList">
+                <div>Ordered Product: {{ order.productTitle }}</div>
+                <div>Order ID: {{ order.orderId }}</div>
+                <div>Order Date: {{ order.OrderDate | date: 'yyyy-MM-dd' }}</div>
+                <div>Order Status: {{ order.status }}</div>
+                <div>Order Total: {{ order.quantity }}</div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

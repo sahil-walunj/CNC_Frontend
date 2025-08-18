@@ -14,6 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     background: white;
+    position: relative; /* Enable positioning for edit button */
 }
 
 .product-panel:hover {
@@ -81,6 +82,9 @@
 .mat-expansion-panel-header {
     height: 64px;
     padding: 0 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
 .mat-expansion-panel-body {
@@ -89,4 +93,36 @@
 
 .mat-expansion-panel-content {
     overflow: visible;
+}
+
+/* Container for title and edit button */
+.mat-expansion-panel-header .mat-expansion-panel-header-title {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    margin-right: 24px !important;
+}
+
+/* Properly aligned edit button */
+.edit-button {
+    width: 80px;
+    height: 40px;
+    background: transparent;
+    color: #6b7280;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.edit-button:hover {
+    color: #374151;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* Prevent edit button from interfering with panel expansion */
+.edit-button:focus,
+.edit-button:active {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
 }

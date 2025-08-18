@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Fill the Form</h2>
+
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Amazon Quantity</mat-label>
+    <input matInput formControlName="amazonQuantity" />
+    <mat-error *ngIf="myForm.get('amazonQuantity')?.hasError('required')">
+      Amazon Quantity is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>Flipkart Quantity</mat-label>
+    <input matInput formControlName="flipkartQuantity" />
+    <mat-error *ngIf="myForm.get('flipkartQuantity')?.hasError('required')">
+      Flipkart Quantity is required
+    </mat-error>
+  </mat-form-field>
+
+  <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 1rem;">
+    <button mat-button type="button" (click)="closePopup()">Cancel</button>
+    <button mat-flat-button color="primary" type="submit">Submit</button>
+  </div>
+</form>
